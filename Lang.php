@@ -95,7 +95,7 @@ class Lang
                 self::$lang_data[$name] = $name;
                 file_put_contents(self::$file, '<?php return ' . var_export(self::$lang_data, true) . '; ');
             }
-            Log::record("Lang", sprintf("语言【%s】未在文件中（%s.yml）定义", $name, self::$lang), Log::TYPE_WARNING);
+            Log::record("Lang", sprintf("语言【%s】未在文件中（%s.php）定义", $name, self::$lang), Log::TYPE_WARNING);
         }
         $value = self::$lang_data[$name] ?? $name;
         return sprintf($value, ...$vars);
